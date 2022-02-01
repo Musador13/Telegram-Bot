@@ -8,9 +8,7 @@
 	<version>0.0.1</version>
 
 	<name>Telegram Bot</name>
-
-	<description>Project demonstrates integration between SpringBoot and Flyway.</description>
-
+	
 	<url>https://github.com/Musador13/Telegram_bot/</url>
 
 	<licenses>
@@ -29,8 +27,6 @@
 	</developers>
 
 	<properties>
-		<maven.compiler.source>17</maven.compiler.source>
-		<maven.compiler.target>17</maven.compiler.target>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<junit.version>5.8.2</junit.version>
 		<source.plugin.version>3.2.1</source.plugin.version>
