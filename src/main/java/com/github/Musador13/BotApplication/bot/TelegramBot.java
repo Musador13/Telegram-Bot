@@ -23,11 +23,12 @@ public class TelegramBot extends TelegramLongPollingBot {
      * Точка входа, куда будут поступать сообщения от пользователей. Отсюда идет вся логика.
      * Условием проверям поступление непустого сообщения, содержащего текст, при соблюдении условия извлекаем текст
      * (удалив пробелы с двух сторон) и Id чата. Передаем сообщение обратно пользователю.
+     *
      * @param update переданное соббщение.
      */
     @Override
     public void onUpdateReceived(Update update) {
-        if(update.hasMessage() && update.getMessage().hasText()) {
+        if (update.hasMessage() && update.getMessage().hasText()) {
             String message = update.getMessage().getText().trim();
             String chatId = update.getMessage().getChatId().toString();
 
@@ -48,6 +49,7 @@ public class TelegramBot extends TelegramLongPollingBot {
 
     /**
      * Здесь мы добавляем имя нашего бота.
+     *
      * @return имя бота, переданное в application.properties
      */
     @Override
@@ -57,6 +59,7 @@ public class TelegramBot extends TelegramLongPollingBot {
 
     /**
      * Здесь мы добавляем токен бота.
+     *
      * @return токен, переданный в application.properties
      */
     @Override
