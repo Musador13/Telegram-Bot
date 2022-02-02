@@ -12,7 +12,7 @@ public class StopCommand implements Command {
 
     public final static String STOP_MESSAGE =
             "Работа была прекращена. До свидания \uD83D\uDE1F.";
-
+  
     public StopCommand(SendBotMessageService sendBotMessageService) {
         this.sendBotMessageService = sendBotMessageService;
     }
