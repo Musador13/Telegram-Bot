@@ -11,8 +11,8 @@ public class StopCommand implements Command {
     private final SendBotMessageService sendBotMessageService;
 
     public final static String STOP_MESSAGE =
-            "Закончил свою работу. До свидания \uD83D\uDE1F.";
-
+            "Работа была прекращена. До свидания \uD83D\uDE1F.";
+  
     public StopCommand(SendBotMessageService sendBotMessageService) {
         this.sendBotMessageService = sendBotMessageService;
     }

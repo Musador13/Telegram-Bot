@@ -1,5 +1,9 @@
 # Release Notes
 
+## 0.2.1-SNAPSHOT
+
+* added unit-tests for bot commands
+
 ## 0.2.0-SNAPSHOT
 
 * Command pattern implemented

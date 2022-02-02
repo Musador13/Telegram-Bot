@@ -7,9 +7,9 @@ import org.telegram.telegrambots.meta.api.objects.Update;
  * Unknown {@link Command}.
  */
 public class UnknownCommand implements Command {
-
-    public static final String UNKNOWN_MESSAGE = "Не понимаю вашей команды \uD83D\uDE1F, напишите /help чтобы " +
-                                                 "ознакомиться с командами.";
+  
+    public static final String UNKNOWN_MESSAGE =
+            "Не понимаю вашей команды \uD83D\uDE1F, напишите /help чтобы ознакомиться с командами.";
 
     private final SendBotMessageService sendBotMessageService;
 
