@@ -1,11 +1,13 @@
 package com.github.Musador13.BotApplication.bot;
 
+import com.github.Musador13.BotApplication.command.CommandContainer;
+import com.github.Musador13.BotApplication.service.SendBotMessageServiceImpl;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
-import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Update;
-import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
+
+import static com.github.Musador13.BotApplication.command.CommandName.NO;
 
 /**
  * Telegram Bot for simple tasks
@@ -13,11 +15,19 @@ import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 @Component
 public class TelegramBot extends TelegramLongPollingBot {
 
+    public static String COMMAND_PREFIX = "/";
+
     @Value("${bot.username}")
     private String username;
 
     @Value("${bot.token}")
     private String token;
+
+    private final CommandContainer commandContainer;
+
+    public TelegramBot() {
+        this.commandContainer = new CommandContainer(new SendBotMessageServiceImpl(this));
+    }
 
     /**
      * Точка входа, куда будут поступать сообщения от пользователей. Отсюда идет вся логика.
@@ -30,19 +40,12 @@ public class TelegramBot extends TelegramLongPollingBot {
     public void onUpdateReceived(Update update) {
         if (update.hasMessage() && update.getMessage().hasText()) {
             String message = update.getMessage().getText().trim();
-            String chatId = update.getMessage().getChatId().toString();
+            if (message.startsWith(COMMAND_PREFIX)) {
+                String commandIdentifier = message.split(" ")[0].toLowerCase();
 
-            //Создаем объект для отправки сообщения, передаем в него само сообщение и айди чата - т.е. то, что должен
-            // отправить бот и куда.
-            SendMessage sendMessage = new SendMessage();
-            sendMessage.setChatId(chatId);
-            sendMessage.setText(message);
-
-            try {
-                execute(sendMessage);
-            } catch (TelegramApiException e) {
-                //todo add logging to the project.
-                e.printStackTrace();
+                commandContainer.retrieveCommand(commandIdentifier).execute(update);
+            } else {
+                commandContainer.retrieveCommand(NO.getCommandName()).execute(update);
             }
         }
     }
@@ -66,5 +69,4 @@ public class TelegramBot extends TelegramLongPollingBot {
     public String getBotToken() {
         return token;
     }
-
 }
