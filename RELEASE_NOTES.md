@@ -1,5 +1,9 @@
 # Release Notes
 
+## 0.2.1-SNAPSHOT
+
+*
+
 ## 0.2.0-SNAPSHOT
 
 * Command pattern implemented

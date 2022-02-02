@@ -1,12 +1,12 @@
 # Telegram Bot on Java
 ![87- Converted](https://snipp.ru/uploads/view/d880306f44d95f58d3a955e22d3ae165.png)
 
-Simple telegram bot for anything task.
+#### Simple telegram bot for anything tasks.
 
-## Idea
+# Idea
 The main idea is to show how to create real application, which can be used by someone else. 
 
-## MVP Scope
+# MVP Scope
 ..............
 
 # How it would work
@@ -25,11 +25,8 @@ Based on MVP Scope, we can specify next behaviours (here and after Telegram User
 - Spring Data starter
 - Unirest - lib for working with REST calls
 
-## License
+# License
 This project is Apache License 2.0 - see the [LICENSE](LICENSE) file for details
 
-
-<!---
-Musador13/Musador13 is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
-You can click the Preview link to take a look at your changes.
---->
+# ✨Thanks for your attention!✨
+![97- Converted](https://i.ytimg.com/vi/s9Oklu-AQGQ/maxresdefault.jpg)
