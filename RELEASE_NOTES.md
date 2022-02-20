@@ -1,5 +1,9 @@
 # Release Notes
 
+## 0.3.0-SNAPSHOT
+
+* added deployment process to the project
+
 ## 0.2.1-SNAPSHOT
 
 * added unit-tests for bot commands
